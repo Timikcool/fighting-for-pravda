@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Expload.expload</PackageId>
+    <PackageVersion>0.7.0</PackageVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>$(PackageId)</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Expload.Pravda" Version="0.13.2" />
+  </ItemGroup>
+  <Target Name="BuildPravdaAfterPublish" AfterTargets="Publish" Condition="'$(Configuration)' == 'Debug'">
+    <Exec Command="pravda compile dotnet -i &quot;bin/Debug/netstandard2.0/publish/Expload.expload.dll,bin/Debug/netstandard2.0/publish/Expload.expload.pdb&quot; -o expload.pravda" />
+  </Target>
+  <Target Name="DeployPravdaAfterPublish" AfterTargets="Publish" Condition="'$(Configuration)' == 'Release'">
+    <Exec Command="pravda compile dotnet -i &quot;bin/Release/netstandard2.0/publish/Expload.expload.dll,bin/Release/netstandard2.0/publish/Expload.expload.pdb&quot; -o expload.pravda" />
+    <Exec Command="pravda gen address -o program-wallet.json" />
+    <Exec Command="pravda broadcast deploy -i expload.pravda -w wallet.json -p program-wallet.json -l 200000 -e http://publicnode.expload.com/api/public" />
+  </Target>
+</Project>
