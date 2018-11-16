@@ -68,7 +68,9 @@ namespace DefaultNamespace
 
         #endregion
 
-
+        
+        #region battle calculation
+        
         public struct Character
         {
             public int Strength;
@@ -87,23 +89,19 @@ namespace DefaultNamespace
             {
                 int attacker = BattleGetTurn();
                 int defender = (attacker + 1) % 2;
+                
+                bool dodged = CharacterGetDodged(chars[defender]);
+                bool crited = CharacterGetCrited(chars[attacker]);
+                int damage = CharacterGetDamage(chars[attacker]) * (dodged ? 0 : 1) * (crited ? 2 : 1);
 
-                if (!CharacterGetDodged(chars[defender]))
-                {
-                    if (CharacterGetCrited(chars[attacker]))
-                    {
-                        hps[defender] -= CharacterGetDamage(chars[attacker]) * 2;
-                    }
-                    else
-                    {
-                        hps[defender] -= CharacterGetDamage(chars[attacker]);
-                    }
-                }
+                hps[defender] -= damage;
+
+                BattleAddAction(attacker, dodged, crited, damage);
             }
 
             return hps[0] <= 0 ? 1 : 0;
         }
-        
+
         private int BattleGetTurn()
         {
             return RandomGet() < 0.5 ? 0 : 1;
@@ -128,5 +126,60 @@ namespace DefaultNamespace
         {
             return 50 + (chara.Stamina - 1) * 10;
         }
+
+        #endregion
+
+
+        #region battle scenario
+
+        private List<BattleAction> _battleActions;
+        private int _battleWinner;
+
+        public struct BattleScenario
+        {
+            public Character Chara0;
+            public Character Chara1;
+            public int Winner;
+            public List<BattleAction> Actions;
+        }
+
+        public struct BattleAction
+        {
+            public int Attacker;
+            public bool Dodged;
+            public bool Crited;
+            public int Damage;
+        }
+
+        private BattleScenario BattleGetScenario(Character chara0, Character chara1, int randomSeed)
+        {
+            _battleActions = new List<BattleAction>();
+            _battleWinner = BattleGetWinner(chara0, chara0, randomSeed);
+
+            return new BattleScenario()
+            {
+                Chara0 = chara0,
+                Chara1 = chara1,
+                Winner = _battleWinner,
+                Actions = _battleActions
+            };
+        }
+        
+        private void BattleAddAction(int attacker, bool dodged, bool crited, int damage)
+        {
+            _battleActions.Add(new BattleAction()
+            {
+                Attacker = attacker,
+                Dodged = dodged,
+                Crited = crited,
+                Damage = damage
+            });
+        }
+
+        #endregion
+
+
+        
+        
     }
 }
