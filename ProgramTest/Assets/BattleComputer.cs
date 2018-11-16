@@ -66,6 +66,67 @@ namespace DefaultNamespace
             return result;
         }
 
-        #endregion        
+        #endregion
+
+
+        public struct Character
+        {
+            public int Strength;
+            public int Stamina;
+            public int Agility;
+        }
+
+        public int BattleGetWinner(Character chara0, Character chara1, int randomSeed)
+        {
+            RandomSetSeed(randomSeed);
+            
+            Character[] chars = {chara0, chara1};
+            int[] hps = {CharacterGetInitialHp(chara0), CharacterGetInitialHp(chara1)};
+
+            while (hps[0] > 0 && hps[1] > 0)
+            {
+                int attacker = BattleGetTurn();
+                int defender = (attacker + 1) % 2;
+
+                if (!CharacterGetDodged(chars[defender]))
+                {
+                    if (CharacterGetCrited(chars[attacker]))
+                    {
+                        hps[defender] -= CharacterGetDamage(chars[attacker]) * 2;
+                    }
+                    else
+                    {
+                        hps[defender] -= CharacterGetDamage(chars[attacker]);
+                    }
+                }
+            }
+
+            return hps[0] <= 0 ? 1 : 0;
+        }
+        
+        private int BattleGetTurn()
+        {
+            return RandomGet() < 0.5 ? 0 : 1;
+        }
+        
+        private bool CharacterGetDodged(Character chara)
+        {
+            return RandomGet() < 0.04 + (float) chara.Agility / 100;
+        }
+        
+        private bool CharacterGetCrited(Character chara)
+        {
+            return RandomGet() < 0.04 + (float) chara.Agility / 100;
+        }
+        
+        private int CharacterGetDamage(Character chara)
+        {
+            return 4 + chara.Strength;
+        }
+
+        private int CharacterGetInitialHp(Character chara)
+        {
+            return 50 + (chara.Stamina - 1) * 10;
+        }
     }
 }
