@@ -6,7 +6,7 @@ public class ZooProgram
 {
     public Mapping<String, int> PetToZoo = new Mapping<String, int>();
     public Mapping<String, Bytes> PetSignature = new Mapping<String, Bytes>();
-    public Mapping<String, Bytes> PetToOwner = new Mapping<String, Bytes>();
+    public Mapping<String, Bytes> FighterToOwner = new Mapping<int, Bytes>();
     public Mapping<int, Bytes> ZooToOwner = new Mapping<int, Bytes>();
     public int ZooCnt = 1;
     public int PetId = 1;
@@ -34,16 +34,12 @@ public class ZooProgram
         }
     }
 
-    public String NewPet(int zoo)
+    public String NewFighter()
     {
-        if (ZooToOwner.getDefault(zoo, Bytes.EMPTY) == Info.Sender()) {
-            String pet = "pet" + System.Convert.ToString(PetId);
-            PetToOwner.put(pet, Info.Sender());
-            PetSignature.put(pet, GenerateSignature(pet));
-            PetId += 1;
-            return pet;
-        }
-        return "";
+            FighterToOwner.put(fighter, Info.Sender());
+            PetSignature.put(fighter, GenerateSignature(pet));
+            FighterId += 1;
+            return fighter;
     }
 
     public void TransferPet(Bytes to, int zoo, String pet)
