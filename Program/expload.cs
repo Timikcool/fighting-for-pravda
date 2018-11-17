@@ -2,11 +2,25 @@ using System;
 using Expload.Pravda;
 
 [Program]
-public class ZooProgram
+public class FightingProgram
 {
 
-    public class Fighter
-        {            
+    FightingProgram()
+    {
+        RandomSeed = 0;
+        
+    }
+
+    private class Fighter
+        {
+            Fighter()
+            {
+                Stamina = 0;
+                Strength = 0;
+                Agility = 0;
+                Wins = 0;
+                Loses = 0;
+            }
             public int Stamina { get; set; }
             public int Strength { get; set; }
             public int Agility { get; set; }
@@ -17,10 +31,8 @@ public class ZooProgram
 
         }
     
-    public Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
-    public Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
-
-    public int FighterId = 1;
+    private Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
+    private Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
 
     private int _randomPosition;
     private int _randomQuantity = 500;
@@ -68,6 +80,8 @@ public class ZooProgram
             78460, 47833, 20496, 35645
         };
 
+    private int RandomSeed { get; set; }
+
         private void RandomSetSeed(int seed)
         {
             _randomPosition = seed;
@@ -80,28 +94,43 @@ public class ZooProgram
             return result;
         }
     
-    public int BattleGetWinner(int FighterId0, int FighterId1, int randomSeed)
+    private int BattleGetWinner(Fighter fighter0, Fighter fighter1, int randomSeed)
         {
             RandomSetSeed(randomSeed);
-            
-            //Fighter[] fighters = {}; // add Fighters mapping
-            int[] hps = {FighterGetInitialHp(0), FighterGetInitialHp(chara1)};
+                        
+            int[] hps = {FighterGetInitialHp(fighter0), FighterGetInitialHp(fighter1)};
 
             while (hps[0] > 0 && hps[1] > 0)
             {
-                int attacker = BattleGetTurn();
-                int defender = (attacker + 1) % 2;
+                int turn = BattleGetTurn();
+                int counter = (turn + 1) % 2;
                 
-                bool dodged = FighterGetDodged(fighters[defender]);
-                bool crited = FighterGetCrited(fighters[attacker]);
-                int damage = FighterGetDamage(fighters[attacker]) * (dodged ? 0 : 1) * (crited ? 2 : 1);
+                Fighter attacker = turn > 0 ? fighter0 : fighter1;
+                Fighter defender = counter > 0 ? fighter0 : fighter1;
+                
+                bool dodged = FighterGetDodged(attacker);
+                bool crited = FighterGetCrited(defender);
+                int damage = FighterGetDamage(attacker) * (dodged ? 0 : 1) * (crited ? 2 : 1);
 
-                hps[defender] -= damage;
-
+                hps[counter] = hps[counter] - damage;
             }
 
             return hps[0] <= 0 ? 1 : 0;
         }
+
+
+    public string ProceedBattle(int FighterId0, int FighterId1)
+    {     
+        RandomSeed = ++RandomSeed % 500;
+
+        int winner = BattleGetWinner(FighterIdToFighter.get(FighterId0), FighterIdToFighter.get(FighterId1),
+            RandomSeed);
+
+        string result = Convert.ToString(winner) + "," + Convert.ToString(RandomSeed);
+
+        return result;
+    }
+    
 
         private int BattleGetTurn()
         {
@@ -151,10 +180,7 @@ public class ZooProgram
     //     }
     // }
 
-    public int getFightersId(){
-        return 1;
-    }
-
+/*
     public int NewFighter()
     {
             Fighter fighter = new Fighter();
@@ -166,6 +192,7 @@ public class ZooProgram
   
             return FighterId - 1;
     }
+*/
 
     // public void TransferPet(Bytes to, int zoo, String pet)
     // {
