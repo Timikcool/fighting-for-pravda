@@ -31,6 +31,17 @@ public class Implant
     public int PosX { get; set; }
     public int PosY { get; set; }
     public int Rotation { get; set; }
+
+    public int StaminaEffect { get; }
+    public int AgilityEffect { get; }
+    public int StrengthEffect { get; }
+
+    public Implant(int stamina, int agility, int strength)
+    {
+        StaminaEffect = stamina;
+        AgilityEffect = agility;
+        StrengthEffect = strength;
+    }
 }
 
 [Program]
@@ -99,24 +110,24 @@ public class FightingProgram
 
     public int createImplant()
     {
-        Implant implant = new Implant();
+        Implant implant = new Implant(RandomGet() % 5, RandomGet() % 5, RandomGet() % 5);
         ImplantIdToImplant.put(ImplantId, implant);
         ImplantIdtoOwner.put(ImplantId, Info.Sender());
         return ImplantId++;
     }
 
-    public string AttachImplantToFighter(int implantId, int fighterId, int rotation, int assetId, int bodyPart,
+    public string AttachImplantToFighter(int implantId, int fighterId, int rotation, int bodyPart,
         int posX,
         int posY)
     {
-        Bytes owner = ImplantIdtoOwner.get(implantId);
+        Bytes implantOwner = ImplantIdtoOwner.get(implantId);
+        Bytes fighterOwner = FighterIdToOwner.get(fighterId);
 
-        if (Info.Sender() == owner)
+        if (Info.Sender() == implantOwner && implantOwner == fighterOwner)
         {
             Implant implant = ImplantIdToImplant.get(implantId);
 
             implant.Rotation = rotation;
-            implant.AssetId = assetId;
             implant.BodyPart = bodyPart;
             implant.PosX = posX;
             implant.PosY = posY;
@@ -146,6 +157,23 @@ public class FightingProgram
         }
 
         return "";
+    }
+
+    private string convertArrayToString(int[] arr)
+    {
+        string result = "";
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (i != 0)
+            {
+                result = result + ",";
+            }
+
+            result = result + Convert.ToString(arr[i]);
+        }
+
+        return result;
     }
 
     private void RandomSetSeed(int seed)
