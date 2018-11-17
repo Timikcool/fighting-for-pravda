@@ -13,15 +13,18 @@ public class FightingProgram
 
     private class Fighter
         {
-            public Fighter()
+            public Fighter(String name)
             {
-                Stamina = 0;
-                Strength = 0;
-                Agility = 0;
-                Wins = 0;
-                Loses = 0;
+                Name = name;
+                Stamina = 1;
+                Strength = 1;
+                Agility = 1;
+                Wins = 1;
+                Loses = 1;
             }
             public int Stamina { get; set; }
+
+            public String Name {get; set;}
             public int Strength { get; set; }
             public int Agility { get; set; }
 
@@ -202,14 +205,12 @@ public class FightingProgram
     //     }
     // }
 
-    public int createNewFighter()
+    public int createNewFighter(String name)
     {
-            Fighter fighter = new Fighter();
+            Fighter fighter = new Fighter(name);
             FighterIdToFighter.put(FighterId, fighter);
             FighterIdToOwner.put(FighterId, Info.Sender());
-            FighterId += 1;
-  
-            return FighterId - 1;
+            return FighterId++;
     }
 
 

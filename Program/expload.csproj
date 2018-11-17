@@ -14,6 +14,6 @@
   <Target Name="DeployPravdaAfterPublish" AfterTargets="Publish" Condition="'$(Configuration)' == 'Release'">
     <Exec Command="pravda compile dotnet -i &quot;bin/Release/netstandard2.0/publish/Expload.expload.dll,bin/Release/netstandard2.0/publish/Expload.expload.pdb&quot; -o expload.pravda" />
     <Exec Command="pravda gen address -o program-wallet.json" />
-    <Exec Command="pravda broadcast deploy -i expload.pravda -w wallet.json -p program-wallet.json -l 200000 -e http://publicnode.expload.com/api/public" />
+    <Exec Command="pravda broadcast deploy -i expload.pravda -w wallet.json -p program-wallet.json -l 2000000 -e http://publicnode.expload.com/api/public" />
   </Target>
 </Project>
