@@ -17,6 +17,26 @@ public class ZooProgram
 
         }
     
+    public class Implant {
+
+        public int AssetId {get; set;}
+        public int BodyPart {get; set;}
+        public int PosX{get;set;}
+        public int PosY{get;set;}
+        public int Rotation{get;set;}
+
+        public String Creator{get;}
+        public Implant(){
+            this.Creator = Info.sender();
+        }
+    }
+    
+    public int ImplantId = 1;
+
+    public Mapping<int, Implant> ImplantIdToImplant = new Mapping<int, Implant>();
+
+    public Mapping<int,int> ImplantIdtoFighterId = new Mapping<int, int>();
+    
     public Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
     public Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
 
@@ -151,22 +171,17 @@ public class ZooProgram
     //     }
     // }
 
-    public int getFightersId(){
-        return 1;
-    }
-
-    public int NewFighter()
+    public int createNewFighter()
     {
             Fighter fighter = new Fighter();
-            
             FighterIdToFighter.put(FighterId, fighter);
             FighterIdToOwner.put(FighterId, Info.Sender());
-            // PetSignature.put(fighter, GenerateSignature(fighter));
             FighterId += 1;
   
             return FighterId - 1;
     }
 
+   
     // public void TransferPet(Bytes to, int zoo, String pet)
     // {
     //     if (PetToOwner.getDefault(pet, Bytes.EMPTY) == Info.Sender() && ZooToOwner.getDefault(zoo, Bytes.EMPTY) == to) {
@@ -190,5 +205,10 @@ public class ZooProgram
     //     }
     // }
 
+    public int createNewImplant(){}
+
+    public int assignImplantToFighter(int ImplantId, int FighterId){
+
+    }
     public static void Main() {}
 }
