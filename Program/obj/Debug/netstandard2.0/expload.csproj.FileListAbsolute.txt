@@ -1,0 +1,9 @@
+/home/user/projects/fighting-for-pravda/Program/bin/Debug/netstandard2.0/Expload.expload.deps.json
+/home/user/projects/fighting-for-pravda/Program/bin/Debug/netstandard2.0/Expload.expload.dll
+/home/user/projects/fighting-for-pravda/Program/bin/Debug/netstandard2.0/Expload.expload.pdb
+/home/user/projects/fighting-for-pravda/Program/obj/Debug/netstandard2.0/expload.csprojAssemblyReference.cache
+/home/user/projects/fighting-for-pravda/Program/obj/Debug/netstandard2.0/expload.csproj.CoreCompileInputs.cache
+/home/user/projects/fighting-for-pravda/Program/obj/Debug/netstandard2.0/expload.AssemblyInfoInputs.cache
+/home/user/projects/fighting-for-pravda/Program/obj/Debug/netstandard2.0/expload.AssemblyInfo.cs
+/home/user/projects/fighting-for-pravda/Program/obj/Debug/netstandard2.0/Expload.expload.dll
+/home/user/projects/fighting-for-pravda/Program/obj/Debug/netstandard2.0/Expload.expload.pdb

@@ -1,0 +1,63 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": "524f112edf7636d14d45d13e942529ec77072cb4"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "Expload.expload/1.0.0": {
+        "dependencies": {
+          "Expload.Pravda": "0.13.2",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "Expload.expload.dll": {}
+        }
+      },
+      "Expload.Pravda/0.13.2": {
+        "runtime": {
+          "lib/netstandard2.0/Pravda.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Expload.expload/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Expload.Pravda/0.13.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jAEvkaQNniEAP0Bexb594J9OaSfFwX2jMMJufatMHBcxKgwhNQyUkqksFYsp5rtFO5+5V/6bdMbO1VwFBRVEIQ==",
+      "path": "expload.pravda/0.13.2",
+      "hashPath": "expload.pravda.0.13.2.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    }
+  }
+}

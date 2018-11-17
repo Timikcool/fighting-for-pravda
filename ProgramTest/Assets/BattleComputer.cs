@@ -77,21 +77,21 @@ namespace DefaultNamespace
             public int Agility;
         }
 
-        public int BattleGetWinner(Character chara0, Character chara1, int randomSeed)
+        public int BattleGetWinner(Fighter chara0, Fighter chara1, int randomSeed)
         {
             RandomSetSeed(randomSeed);
             
-            Character[] chars = {chara0, chara1};
-            int[] hps = {CharacterGetInitialHp(chara0), CharacterGetInitialHp(chara1)};
+            Fighter[] chars = {chara0, chara1};
+            int[] hps = {FighterGetInitialHp(chara0), FighterGetInitialHp(chara1)};
 
             while (hps[0] > 0 && hps[1] > 0)
             {
                 int attacker = BattleGetTurn();
                 int defender = (attacker + 1) % 2;
                 
-                bool dodged = CharacterGetDodged(chars[defender]);
-                bool crited = CharacterGetCrited(chars[attacker]);
-                int damage = CharacterGetDamage(chars[attacker]) * (dodged ? 0 : 1) * (crited ? 2 : 1);
+                bool dodged = FighterGetDodged(chars[defender]);
+                bool crited = FighterGetCrited(chars[attacker]);
+                int damage = FighterGetDamage(chars[attacker]) * (dodged ? 0 : 1) * (crited ? 2 : 1);
 
                 hps[defender] -= damage;
 
@@ -106,22 +106,22 @@ namespace DefaultNamespace
             return RandomGet() < 5000 ? 0 : 1;
         }
         
-        private bool CharacterGetDodged(Character chara)
+        private bool FighterGetDodged(Fighter chara)
         {
             return RandomGet() < 400 + chara.Agility * 100;
         }
         
-        private bool CharacterGetCrited(Character chara)
+        private bool FighterGetCrited(Fighter chara)
         {
             return RandomGet() < 400 + chara.Agility * 100;
         }
         
-        private int CharacterGetDamage(Character chara)
+        private int FighterGetDamage(Fighter chara)
         {
             return 4 + chara.Strength;
         }
 
-        private int CharacterGetInitialHp(Character chara)
+        private int FighterGetInitialHp(Fighter chara)
         {
             return 40 + chara.Stamina * 10;
         }
@@ -136,8 +136,8 @@ namespace DefaultNamespace
 
         public struct BattleScenario
         {
-            public Character Chara0;
-            public Character Chara1;
+            public Fighter Chara0;
+            public Fighter Chara1;
             public int Winner;
             public List<BattleAction> Actions;
         }
@@ -150,7 +150,7 @@ namespace DefaultNamespace
             public int Damage;
         }
 
-        private BattleScenario BattleGetScenario(Character chara0, Character chara1, int randomSeed)
+        private BattleScenario BattleGetScenario(Fighter chara0, Fighter chara1, int randomSeed)
         {
             _battleActions = new List<BattleAction>();
             _battleWinner = BattleGetWinner(chara0, chara0, randomSeed);
