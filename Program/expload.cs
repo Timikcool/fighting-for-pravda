@@ -2,11 +2,25 @@ using System;
 using Expload.Pravda;
 
 [Program]
-public class ZooProgram
+public class FightingProgram
 {
 
-    public class Fighter
-        {            
+    FightingProgram()
+    {
+        RandomSeed = 0;
+        
+    }
+
+    private class Fighter
+        {
+            public Fighter()
+            {
+                Stamina = 0;
+                Strength = 0;
+                Agility = 0;
+                Wins = 0;
+                Loses = 0;
+            }
             public int Stamina { get; set; }
             public int Strength { get; set; }
             public int Agility { get; set; }
@@ -17,7 +31,7 @@ public class ZooProgram
 
         }
     
-    public class Implant {
+    private class Implant {
 
         public int AssetId {get; set;}
         public int BodyPart {get; set;}
@@ -26,19 +40,19 @@ public class ZooProgram
         public int Rotation{get;set;}
 
         public String Creator{get;}
-        public Implant(){
-            this.Creator = Info.sender();
+        Implant(String sender){
+            this.Creator = sender;
         }
     }
     
     public int ImplantId = 1;
 
-    public Mapping<int, Implant> ImplantIdToImplant = new Mapping<int, Implant>();
+    private Mapping<int, Implant> ImplantIdToImplant = new Mapping<int, Implant>();
 
-    public Mapping<int,int> ImplantIdtoFighterId = new Mapping<int, int>();
+    private Mapping<int,int> ImplantIdtoFighterId = new Mapping<int, int>();
     
-    public Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
-    public Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
+    private Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
+    private Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
 
     public int FighterId = 1;
 
@@ -88,6 +102,8 @@ public class ZooProgram
             78460, 47833, 20496, 35645
         };
 
+    private int RandomSeed { get; set; }
+
         private void RandomSetSeed(int seed)
         {
             _randomPosition = seed;
@@ -100,28 +116,43 @@ public class ZooProgram
             return result;
         }
     
-    public int BattleGetWinner(int FighterId0, int FighterId1, int randomSeed)
+    private int BattleGetWinner(Fighter fighter0, Fighter fighter1, int randomSeed)
         {
             RandomSetSeed(randomSeed);
-            
-            //Fighter[] fighters = {}; // add Fighters mapping
-            int[] hps = {FighterGetInitialHp(0), FighterGetInitialHp(chara1)};
+                        
+            int[] hps = {FighterGetInitialHp(fighter0), FighterGetInitialHp(fighter1)};
 
             while (hps[0] > 0 && hps[1] > 0)
             {
-                int attacker = BattleGetTurn();
-                int defender = (attacker + 1) % 2;
+                int turn = BattleGetTurn();
+                int counter = (turn + 1) % 2;
                 
-                bool dodged = FighterGetDodged(fighters[defender]);
-                bool crited = FighterGetCrited(fighters[attacker]);
-                int damage = FighterGetDamage(fighters[attacker]) * (dodged ? 0 : 1) * (crited ? 2 : 1);
+                Fighter attacker = turn > 0 ? fighter0 : fighter1;
+                Fighter defender = counter > 0 ? fighter0 : fighter1;
+                
+                bool dodged = FighterGetDodged(attacker);
+                bool crited = FighterGetCrited(defender);
+                int damage = FighterGetDamage(attacker) * (dodged ? 0 : 1) * (crited ? 2 : 1);
 
-                hps[defender] -= damage;
-
+                hps[counter] = hps[counter] - damage;
             }
 
             return hps[0] <= 0 ? 1 : 0;
         }
+
+
+    public string ProceedBattle(int FighterId0, int FighterId1)
+    {     
+        RandomSeed = ++RandomSeed % 500;
+
+        int winner = BattleGetWinner(FighterIdToFighter.get(FighterId0), FighterIdToFighter.get(FighterId1),
+            RandomSeed);
+
+        string result = Convert.ToString(winner) + "," + Convert.ToString(RandomSeed);
+
+        return result;
+    }
+    
 
         private int BattleGetTurn()
         {
@@ -181,6 +212,7 @@ public class ZooProgram
             return FighterId - 1;
     }
 
+
    
     // public void TransferPet(Bytes to, int zoo, String pet)
     // {
@@ -205,10 +237,10 @@ public class ZooProgram
     //     }
     // }
 
-    public int createNewImplant(){}
+   // public int createNewImplant(){}
 
-    public int assignImplantToFighter(int ImplantId, int FighterId){
-
-    }
+  //  public int assignImplantToFighter(int ImplantId, int FighterId){
+//
+  //  }
     public static void Main() {}
 }

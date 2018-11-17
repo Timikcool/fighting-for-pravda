@@ -2942,36 +2942,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ/under_arm_RIGHT/fist_RIGHT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ/under_arm_RIGHT/fist_RIGHT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ/under_arm_RIGHT/fist_RIGHT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
     path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
@@ -3002,7 +2972,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ/under_arm_LEFT/fist_LEFT_OBJ
+    path: body_OBJ/body/upper_arm_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3012,7 +2982,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ/under_arm_LEFT/fist_LEFT_OBJ
+    path: body_OBJ/body/upper_arm_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3022,7 +2992,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ/under_arm_LEFT/fist_LEFT_OBJ
+    path: body_OBJ/body/upper_arm_RIGHT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: ass_OBJ/leg_LEFT_OBJ/upper_leg_LEFT/under_leg_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: ass_OBJ/leg_LEFT_OBJ/upper_leg_LEFT/under_leg_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: ass_OBJ/leg_LEFT_OBJ/upper_leg_LEFT/under_leg_LEFT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3092,7 +3122,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ
+    path: 
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3102,7 +3132,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ
+    path: 
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3112,7 +3142,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ
+    path: 
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3182,7 +3212,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ass_OBJ/leg_LEFT_OBJ/upper_leg_LEFT/under_leg_LEFT_OBJ
+    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ/under_leg_RIGHT/foot_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3192,7 +3222,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ass_OBJ/leg_LEFT_OBJ/upper_leg_LEFT/under_leg_LEFT_OBJ
+    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ/under_leg_RIGHT/foot_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3202,127 +3232,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ass_OBJ/leg_LEFT_OBJ/upper_leg_LEFT/under_leg_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: body_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: body_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: body_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: body_OBJ/body/upper_arm_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: body_OBJ/body/upper_arm_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: body_OBJ/body/upper_arm_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: body_OBJ/body/upper_arm_RIGHT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: body_OBJ/body/upper_arm_RIGHT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: body_OBJ/body/upper_arm_RIGHT_OBJ
+    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ/under_leg_RIGHT/foot_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3362,7 +3272,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ/under_leg_RIGHT/foot_RIGHT_OBJ
+    path: body_OBJ/body/upper_arm_LEFT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3372,7 +3282,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ/under_leg_RIGHT/foot_RIGHT_OBJ
+    path: body_OBJ/body/upper_arm_LEFT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3382,27 +3292,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ/under_leg_RIGHT/foot_RIGHT_OBJ
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: 
+    path: body_OBJ/body/upper_arm_LEFT_OBJ
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3412,7 +3302,117 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: 
+    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ/under_arm_LEFT/fist_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ/under_arm_LEFT/fist_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: body_OBJ/body/upper_arm_LEFT_OBJ/upper_arm_LEFT/under_arm_LEFT_OBJ/under_arm_LEFT/fist_LEFT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: body_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: body_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: body_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: ass_OBJ/leg_RIGHT_OBJ/upper_leg_RIGHT/upper_leg_RIGHT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ/under_arm_RIGHT/fist_RIGHT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ/under_arm_RIGHT/fist_RIGHT_OBJ
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: body_OBJ/body/upper_arm_RIGHT_OBJ/upper_arm_RIGHT/under_arm_RIGHT_OBJ/under_arm_RIGHT/fist_RIGHT_OBJ
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
