@@ -70,7 +70,7 @@ namespace DefaultNamespace
         
         #region battle calculation
         
-        public struct Character
+        public struct Fighter
         {
             public int Strength;
             public int Stamina;
