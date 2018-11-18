@@ -36,11 +36,12 @@ public class Implant
     public int AgilityEffect { get; }
     public int StrengthEffect { get; }
 
-    public Implant(int stamina, int agility, int strength)
+    public Implant(int stamina, int agility, int strength, int assetId)
     {
         StaminaEffect = stamina;
         AgilityEffect = agility;
         StrengthEffect = strength;
+        AssetId = assetId;
     }
 }
 
@@ -49,19 +50,10 @@ public class FightingProgram
 {
     FightingProgram()
     {
-        randomPosition = 0;
-        RandomSeed = 0;
         ImplantId = 1;
         FighterId = 1;
-        _randomValues = new int[]
-        {
-            9632, 7523, 5356, 6927, 4623
-        };
     }
 
-    private int[] _randomValues;
-
-    private int RandomSeed;
 
     private int ImplantId;
     private int FighterId;
@@ -75,7 +67,6 @@ public class FightingProgram
     private Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
     private Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
 
-    public int randomPosition;
     /* public int _randomQuantity = 5; */
 
     /* public void TestSystemMethods()
@@ -90,7 +81,7 @@ public class FightingProgram
     } */
     public int CreateImplant()
     {
-        Implant implant = new Implant(5, 5, 5);
+        Implant implant = new Implant(RandomGet(), RandomGet(), RandomGet(), RandomGet());
         ImplantIdToImplant.put(ImplantId, implant);
         ImplantIdtoOwner.put(ImplantId, Info.Sender());
 
@@ -209,21 +200,18 @@ public class FightingProgram
         return result;
     }
 
-    private void RandomSetSeed(int seed)
-    {
-        randomPosition = seed;
-    }
 
     private int RandomGet()
     {
-        int result = _randomValues[randomPosition];
+        int hash = Convert.ToInt32(Info.LastBlockHash());
+/*
         randomPosition++;
-        if (randomPosition >= _randomValues.Length)
+        if (randomPosition > 9)
         {
             randomPosition = 0;
-        }
+        }*/
 
-        return result;
+        return hash % 9;
     }
 
     private int BattleGetWinner(int fighter0, int fighter1, int randomSeed)
@@ -253,11 +241,11 @@ public class FightingProgram
 
     public string ProceedBattle(int fighterId0, int fighterId1)
     {
-        RandomSeed = ++RandomSeed % 80;
+        int randomSeed = RandomGet();
 
-        int winner = BattleGetWinner(fighterId0, fighterId1, RandomSeed);
+        int winner = BattleGetWinner(fighterId0, fighterId1, randomSeed);
         int loser = winner == fighterId0 ? fighterId1 : fighterId0;
-        
+
         Fighter winnerFighter = FighterIdToFighter.get(winner);
         Fighter loserFighter = FighterIdToFighter.get(loser);
 
@@ -267,7 +255,7 @@ public class FightingProgram
         FighterIdToFighter.put(winner, winnerFighter);
         FighterIdToFighter.put(loser, loserFighter);
 
-        string result = Convert.ToString(winner) + "," + Convert.ToString(loser) + "," + Convert.ToString(RandomSeed);
+        string result = Convert.ToString(winner) + "," + Convert.ToString(loser) + "," + Convert.ToString(randomSeed);
 
         return result;
     }

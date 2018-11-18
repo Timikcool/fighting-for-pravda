@@ -6,7 +6,7 @@
     <AssemblyName>$(PackageId)</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Expload.Pravda" Version="0.14.1" />
+    <PackageReference Include="Expload.Pravda" Version="0.15.0" />
   </ItemGroup>
   <Target Name="BuildPravdaAfterPublish" AfterTargets="Publish" Condition="'$(Configuration)' == 'Debug'">
     <Exec Command="pravda compile dotnet -i &quot;bin/Debug/netstandard2.0/publish/Expload.expload.dll,bin/Debug/netstandard2.0/publish/Expload.expload.pdb&quot; -o expload.pravda" />
