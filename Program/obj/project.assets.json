@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "Expload.Pravda/0.13.2": {
+      "Expload.Pravda/0.14.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Pravda.dll": {}
@@ -38,14 +38,14 @@
     }
   },
   "libraries": {
-    "Expload.Pravda/0.13.2": {
-      "sha512": "jAEvkaQNniEAP0Bexb594J9OaSfFwX2jMMJufatMHBcxKgwhNQyUkqksFYsp5rtFO5+5V/6bdMbO1VwFBRVEIQ==",
+    "Expload.Pravda/0.14.1": {
+      "sha512": "djqbCclUpdHPUhVGf9arNBBP32aYUDO39DKxubVdFaSAxyVPRws8+LZsEFTAH1t6Q/+dilI7/jPvn7nvnTDOWQ==",
       "type": "package",
-      "path": "expload.pravda/0.13.2",
+      "path": "expload.pravda/0.14.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "expload.pravda.0.13.2.nupkg.sha512",
+        "expload.pravda.0.14.1.nupkg.sha512",
         "expload.pravda.nuspec",
         "lib/netstandard2.0/Pravda.dll"
       ]
@@ -196,7 +196,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Expload.Pravda >= 0.13.2",
+      "Expload.Pravda >= 0.14.1",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -241,7 +241,7 @@
         "dependencies": {
           "Expload.Pravda": {
             "target": "Package",
-            "version": "[0.13.2, )"
+            "version": "[0.14.1, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
