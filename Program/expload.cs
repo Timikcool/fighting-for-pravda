@@ -47,15 +47,18 @@ public class Implant
 [Program]
 public class FightingProgram
 {
-    FightingProgram() {
+    FightingProgram()
+    {
         randomPosition = 0;
         RandomSeed = 0;
         ImplantId = 1;
         FighterId = 1;
-        _randomValues = new int[] {
-            9632, 7523, 5356, 6927,	4623
+        _randomValues = new int[]
+        {
+            9632, 7523, 5356, 6927, 4623
         };
     }
+
     private int[] _randomValues;
 
     private int RandomSeed;
@@ -92,35 +95,39 @@ public class FightingProgram
         ImplantIdtoOwner.put(ImplantId, Info.Sender());
 
         int[] ownerImplantIds = OwnerToImplantIds.getDefault(Info.Sender(), new int[0]);
-            int size = ownerImplantIds.Length;
+        int size = ownerImplantIds.Length;
 
-            int[] newImplantsIds = new int[size + 1];
+        int[] newImplantsIds = new int[size + 1];
 
-            for (int i = 0; i < size; i++)
-            {
-                newImplantsIds[i] = ownerImplantIds[i];
-            }
+        for (int i = 0; i < size; i++)
+        {
+            newImplantsIds[i] = ownerImplantIds[i];
+        }
 
-            
-            newImplantsIds[size] = ImplantId;
-            OwnerToImplantIds.put(Info.Sender(), newImplantsIds);
+
+        newImplantsIds[size] = ImplantId;
+        OwnerToImplantIds.put(Info.Sender(), newImplantsIds);
 
         return ImplantId++;
     }
 
-    public string GetAccountImplants(){
+    public string GetAccountImplants()
+    {
         int[] implants = OwnerToImplantIds.getDefault(Info.Sender(), new int[0]);
-        return convertArrayToString(implants);
+        return convertIntArrayToString(implants);
     }
 
-    public string GetFighterImplants(int fighterId){
+    public string GetFighterImplants(int fighterId)
+    {
         int[] implants = FighterIdtoImplantIds.getDefault(fighterId, new int[0]);
-        return convertArrayToString(implants);
+        return convertIntArrayToString(implants);
     }
 
-    public string GetImplantStats(int implantId){
+    public string GetImplantStats(int implantId)
+    {
         Implant implant = ImplantIdToImplant.get(implantId);
-        return Convert.ToString(implant.StrengthEffect) + ',' + Convert.ToString(implant.StaminaEffect) + ',' + Convert.ToString(implant.AgilityEffect);
+        return Convert.ToString(implant.StrengthEffect) + ',' + Convert.ToString(implant.StaminaEffect) + ',' +
+               Convert.ToString(implant.AgilityEffect);
     }
 
     public string AttachImplantToFighter(
@@ -162,7 +169,7 @@ public class FightingProgram
 
             result = result + "," + Convert.ToString(implantId);
 
-            
+
             newImplantsIds[size] = implantId;
             FighterIdtoImplantIds.put(fighterId, newImplantsIds);
 
@@ -172,7 +179,20 @@ public class FightingProgram
         return "";
     }
 
-    private string convertArrayToString(int[] arr)
+    private int[] putInArray(int[] arr)
+    {
+        int size = arr.Length;
+        int[] newArr = new int[size + 1];
+
+        for (int i = 0; i < size; i++)
+        {
+            newArr[i] = arr[i];
+        }
+
+        return newArr;
+    }
+
+    private string convertIntArrayToString(int[] arr)
     {
         string result = "";
 
@@ -198,17 +218,19 @@ public class FightingProgram
     {
         int result = _randomValues[randomPosition];
         randomPosition++;
-        if(randomPosition >= _randomValues.Length) {
+        if (randomPosition >= _randomValues.Length)
+        {
             randomPosition = 0;
         }
+
         return result;
     }
 
-    private int BattleGetWinner(Fighter fighter0, Fighter fighter1, int randomSeed)
+    private int BattleGetWinner(int fighter0, int fighter1, int randomSeed)
     {
-        RandomSetSeed(randomSeed);
+        //RandomSetSeed(randomSeed);
 
-        int[] hps = {FighterGetInitialHp(fighter0), FighterGetInitialHp(fighter1)};
+        /*int[] hps = {FighterGetInitialHp(fighter0), FighterGetInitialHp(fighter1)};
 
         while (hps[0] > 0 && hps[1] > 0)
         {
@@ -223,9 +245,9 @@ public class FightingProgram
             int damage = FighterGetDamage(attacker) * (dodged ? 0 : 1) * (crited ? 2 : 1);
 
             hps[counter] = hps[counter] - damage;
-        }
+        }*/
 
-        return hps[0] <= 0 ? 1 : 0;
+        return randomSeed % 2 <= 0 ? fighter0 : fighter1;
     }
 
 
@@ -233,11 +255,20 @@ public class FightingProgram
     {
         RandomSeed = ++RandomSeed % 80;
 
-        int winner = BattleGetWinner(FighterIdToFighter.get(fighterId0), FighterIdToFighter.get(fighterId1),
-            RandomSeed);
-
-        string result = Convert.ToString(winner) + "," + Convert.ToString(RandomSeed);
+        int winner = BattleGetWinner(fighterId0, fighterId1, RandomSeed);
+        int loser = winner == fighterId0 ? fighterId1 : fighterId0;
         
+        Fighter winnerFighter = FighterIdToFighter.get(winner);
+        Fighter loserFighter = FighterIdToFighter.get(loser);
+
+        winnerFighter.Wins++;
+        loserFighter.Loses++;
+
+        FighterIdToFighter.put(winner, winnerFighter);
+        FighterIdToFighter.put(loser, loserFighter);
+
+        string result = Convert.ToString(winner) + "," + Convert.ToString(loser) + "," + Convert.ToString(RandomSeed);
+
         return result;
     }
 

@@ -201,28 +201,30 @@
     ]
   },
   "packageFolders": {
-    "/home/user/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\zhadk\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "0.7.0",
     "restore": {
-      "projectUniqueName": "/home/user/projects/fighting-for-pravda/Program/expload.csproj",
+      "projectUniqueName": "C:\\projects\\fighting-for-pravda\\Program\\expload.csproj",
       "projectName": "Expload.expload",
-      "projectPath": "/home/user/projects/fighting-for-pravda/Program/expload.csproj",
-      "packagesPath": "/home/user/.nuget/packages/",
-      "outputPath": "/home/user/projects/fighting-for-pravda/Program/obj/",
+      "projectPath": "C:\\projects\\fighting-for-pravda\\Program\\expload.csproj",
+      "packagesPath": "C:\\Users\\zhadk\\.nuget\\packages\\",
+      "outputPath": "C:\\projects\\fighting-for-pravda\\Program\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/user/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\zhadk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
