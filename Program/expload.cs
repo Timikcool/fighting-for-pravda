@@ -49,16 +49,19 @@ public class FightingProgram
 {
     FightingProgram() {
         randomPosition = 0;
+        RandomSeed = 0;
+        ImplantId = 1;
+        FighterId = 1;
     }
     public int[] _randomValues =
     {
         9632, 7523, 5356, 6927,	4623
     };
 
-    private int RandomSeed = 0;
+    private int RandomSeed;
 
-    private int ImplantId = 1;
-    private int FighterId = 1;
+    private int ImplantId;
+    private int FighterId;
 
     private Mapping<int, Implant> ImplantIdToImplant = new Mapping<int, Implant>();
     private Mapping<int, int[]> FighterIdtoImplantIds = new Mapping<int, int[]>();
@@ -92,7 +95,6 @@ public class FightingProgram
             int size = ownerImplantIds.Length;
 
             int[] newImplantsIds = new int[size + 1];
-            string result = "";
 
             for (int i = 0; i < size; i++)
             {
@@ -194,9 +196,7 @@ public class FightingProgram
 
     private int RandomGet()
     {
-        //int result = _randomValues[randomPosition];
         int result = _randomValues[randomPosition];
-        //randomPosition = randomPosition++;
         randomPosition++;
         if(randomPosition >= _randomValues.Length) {
             randomPosition = 0;
@@ -237,8 +237,8 @@ public class FightingProgram
             RandomSeed);
 
         string result = Convert.ToString(winner) + "," + Convert.ToString(RandomSeed);
-
-        return Convert.ToString(RandomGet());
+        
+        return result;
     }
 
 
