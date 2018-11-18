@@ -47,6 +47,9 @@ public class Implant
 [Program]
 public class FightingProgram
 {
+    FightingProgram() {
+        randomPosition = 0;
+    }
     public int[] _randomValues =
     {
         9632, 7523, 5356, 6927,	4623
@@ -66,7 +69,7 @@ public class FightingProgram
     private Mapping<int, Fighter> FighterIdToFighter = new Mapping<int, Fighter>();
     private Mapping<int, Bytes> FighterIdToOwner = new Mapping<int, Bytes>();
 
-    public int randomPosition = 0;
+    public int randomPosition;
     /* public int _randomQuantity = 5; */
 
     /* public void TestSystemMethods()
@@ -192,8 +195,9 @@ public class FightingProgram
     private int RandomGet()
     {
         //int result = _randomValues[randomPosition];
-        int result = _randomValues[0];
-        randomPosition = randomPosition++;
+        int result = _randomValues[randomPosition];
+        //randomPosition = randomPosition++;
+        randomPosition++;
         if(randomPosition >= _randomValues.Length) {
             randomPosition = 0;
         }
@@ -227,16 +231,14 @@ public class FightingProgram
 
     public string ProceedBattle(int fighterId0, int fighterId1)
     {
-        /* RandomSeed = ++RandomSeed % 80;
+        RandomSeed = ++RandomSeed % 80;
 
         int winner = BattleGetWinner(FighterIdToFighter.get(fighterId0), FighterIdToFighter.get(fighterId1),
             RandomSeed);
 
-        string result = Convert.ToString(winner) + "," + Convert.ToString(RandomSeed); */
+        string result = Convert.ToString(winner) + "," + Convert.ToString(RandomSeed);
 
-        //return Convert.ToString(RandomGet());
-        int x = _randomValues[randomPosition];
-        return Convert.ToString(x);
+        return Convert.ToString(RandomGet());
     }
 
 
