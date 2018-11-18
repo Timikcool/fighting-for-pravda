@@ -52,11 +52,11 @@ public class FightingProgram
         RandomSeed = 0;
         ImplantId = 1;
         FighterId = 1;
+        _randomValues = new int[] {
+            9632, 7523, 5356, 6927,	4623
+        };
     }
-    public int[] _randomValues =
-    {
-        9632, 7523, 5356, 6927,	4623
-    };
+    private int[] _randomValues;
 
     private int RandomSeed;
 
